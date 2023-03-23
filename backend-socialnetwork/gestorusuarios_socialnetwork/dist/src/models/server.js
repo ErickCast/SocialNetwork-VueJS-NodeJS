@@ -15,12 +15,12 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const cors_1 = __importDefault(require("cors"));
 const connection_1 = __importDefault(require("../database/connection"));
-const usuario_1 = __importDefault(require("../routes/usuario"));
+const user_1 = __importDefault(require("../routes/user"));
 const structure_1 = __importDefault(require("../config/structure"));
 class Server {
     constructor() {
         this.app = (0, express_1.default)();
-        this.port = structure_1.default.APP_AUTHENTICATION_SOCIALNETWORK_PORT || 3000;
+        this.port = structure_1.default.APP_GESTORUSUARIOS_SOCIALNETWORK_PORT || 3000;
         this.DBConnection();
         this.middlewares();
         this.routes();
@@ -46,7 +46,7 @@ class Server {
         this.app.use(express_1.default.static('public'));
     }
     routes() {
-        this.app.use('/api/user/', usuario_1.default);
+        this.app.use('/api/user/', user_1.default);
     }
     listen() {
         this.app.listen(this.port, () => {

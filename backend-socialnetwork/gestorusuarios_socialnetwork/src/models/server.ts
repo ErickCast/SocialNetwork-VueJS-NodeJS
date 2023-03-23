@@ -1,7 +1,7 @@
 import express, { Application } from 'express';
 import cors from 'cors';
 import db from '../database/connection';
-import userRoutes from '../routes/usuario'
+import userRoutes from '../routes/user'
 
 import structure from '../config/structure';
 
@@ -14,7 +14,7 @@ class Server {
 
     constructor() {
         this.app = express()
-        this.port = structure.APP_AUTHENTICATION_SOCIALNETWORK_PORT || 3000;
+        this.port = structure.APP_GESTORUSUARIOS_SOCIALNETWORK_PORT || 3000;
         this.DBConnection();
         this.middlewares();
         this.routes();
@@ -40,6 +40,7 @@ class Server {
 
         // Carpeta pública
         this.app.use(express.static('public'));
+        
     }
 
     routes() {
