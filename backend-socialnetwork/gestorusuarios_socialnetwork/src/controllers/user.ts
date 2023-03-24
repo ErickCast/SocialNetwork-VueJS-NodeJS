@@ -2,6 +2,7 @@ import { Request, Response } from 'express';
 import { json } from 'sequelize/types';
 import User from '../models/user';
 import { Op } from "sequelize"
+import bcryptjs from 'bcryptjs'
 
 interface IUser {
     name: string;
@@ -63,6 +64,10 @@ export const getUserByName = async(req: Request, res: Response) => {
 export const registerUser = async(req: Request, res: Response) => {
     const user: IUser= req.body; 
     try {
+        
+        const salt: any = bcryptjs.genSaltSync();
+        user.password = bcryptjs.hashSync(user.password, salt);
+        console.log({...user})
         const userAdd = await User.create({...user})
         if( userAdd ) {
             JSONResponse(200, {
@@ -100,6 +105,8 @@ export const putUser = async(req: Request, res: Response) => {
                 msg: "El email ingresado para actualizar ya existe, ingrese otro que no exista"
             }, res)
         }
+        const salt: any = bcryptjs.genSaltSync();
+        user.password = bcryptjs.hashSync(user.password, salt);
         const userUpdated = await User.update( user, {
             where: {
                 id

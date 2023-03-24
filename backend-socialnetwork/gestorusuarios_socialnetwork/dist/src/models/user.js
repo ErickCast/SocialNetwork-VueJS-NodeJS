@@ -21,6 +21,9 @@ const User = connection_1.default.define('usuarios_socialnetwork', {
     tipo_usuario: {
         type: sequelize_1.DataTypes.INTEGER
     },
+    password: {
+        type: sequelize_1.DataTypes.STRING
+    },
     fecha_alta: {
         type: sequelize_1.DataTypes.DATE
     },

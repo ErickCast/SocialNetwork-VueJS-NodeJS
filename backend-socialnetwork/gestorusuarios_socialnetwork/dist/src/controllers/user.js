@@ -15,6 +15,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.deleteUser = exports.putUser = exports.registerUser = exports.getUserByName = exports.getUserById = void 0;
 const user_1 = __importDefault(require("../models/user"));
 const sequelize_1 = require("sequelize");
+const bcryptjs_1 = __importDefault(require("bcryptjs"));
 const JSONResponse = (statusCode, parameters, res) => {
     return res.status(statusCode).json(parameters);
 };
@@ -69,6 +70,9 @@ exports.getUserByName = getUserByName;
 const registerUser = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const user = req.body;
     try {
+        const salt = bcryptjs_1.default.genSaltSync();
+        user.password = bcryptjs_1.default.hashSync(user.password, salt);
+        console.log(Object.assign({}, user));
         const userAdd = yield user_1.default.create(Object.assign({}, user));
         if (userAdd) {
             JSONResponse(200, {
@@ -107,6 +111,8 @@ const putUser = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
                 msg: "El email ingresado para actualizar ya existe, ingrese otro que no exista"
             }, res);
         }
+        const salt = bcryptjs_1.default.genSaltSync();
+        user.password = bcryptjs_1.default.hashSync(user.password, salt);
         const userUpdated = yield user_1.default.update(user, {
             where: {
                 id

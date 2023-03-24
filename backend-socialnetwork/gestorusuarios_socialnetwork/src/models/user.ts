@@ -17,6 +17,9 @@ const User = db.define('usuarios_socialnetwork', {
     tipo_usuario: {
         type: DataTypes.INTEGER
     },
+    password: {
+        type: DataTypes.STRING
+    },
     fecha_alta: {
         type: DataTypes.DATE
     },
