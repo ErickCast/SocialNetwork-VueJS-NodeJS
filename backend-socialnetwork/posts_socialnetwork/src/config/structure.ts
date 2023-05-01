@@ -12,8 +12,8 @@ interface data {
     DB_PORT:number,
     DB_NAME:string,
     DB_USER:string,
-    DB_PASSWORD:string
-    
+    DB_PASSWORD:string,
+    JWT_PRIVATEKEY: string
 }
 
 let structure: data = {...require('../../../../../conf/config_socialnetwork.json')}

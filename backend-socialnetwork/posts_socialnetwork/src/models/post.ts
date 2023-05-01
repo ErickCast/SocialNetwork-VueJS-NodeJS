@@ -1,7 +1,11 @@
-import { DataTypes } from 'sequelize';
+import { DATE, DataTypes } from 'sequelize';
 import db from '../database/connection';
 
 const Post = db.define('posts_socialnetwork', {
+    id: {
+        type: DataTypes.NUMBER,
+        primaryKey: true
+    },
     usuario_id: {
         type: DataTypes.NUMBER
     },

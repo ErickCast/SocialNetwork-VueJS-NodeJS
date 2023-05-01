@@ -3,12 +3,7 @@ import { json } from 'sequelize/types';
 import Post from '../models/post';
 import { Op } from "sequelize"
 import bcryptjs from 'bcryptjs'
-
-interface IPost {
-    usuario_id:  number;
-    descripcion: string;
-    archivo:     string;
-}
+import { IPost } from '../types/interfaces';
 
 const JSONResponse: any = (statusCode: number, parameters:{}, res:Response) => {
     return res.status(statusCode).json(parameters);
