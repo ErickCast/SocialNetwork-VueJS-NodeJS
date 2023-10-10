@@ -1,0 +1,19 @@
+{
+  "name": "shorts_socialnetwork",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/cors": "^2.8.14",
+    "@types/dotenv": "^8.2.0",
+    "@types/express": "^4.17.19",
+    "@types/express-validator": "^3.0.0",
+    "@types/sequelize": "^4.28.16"
+  }
+}
