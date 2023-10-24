@@ -32,5 +32,4 @@ router.delete(structure.APP_GESTORPUBLICACIONES_SOCIALNETWORK_DELETE, [
     validate
 ], deletePost);
 
-
 export default router;

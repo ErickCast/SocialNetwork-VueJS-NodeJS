@@ -1,0 +1,1 @@
+INSERT INTO shorts_socialnetwork(id, id_usuario, descripcion, nombre_archivo, esPrivado, fecha_alta, fecha_actualizacion)(default, "5", "Este es mi video", "mivideo.mp4", false, "2023-10-19 22:37:03.430 +00:00", "2023-10-19 22:37:03.430 +00:00")
